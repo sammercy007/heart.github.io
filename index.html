@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Bootstrap Example</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+</head>
+<style>
+    body{
+        background-image: url(11840293_ml.jpg);
+    }
+    #formarea{
+        background-color: #fefeff;
+        opacity: 0.8;
+    }
+</style>
+<body>
+<div class="col-sm-2">
+    
+</div>
+<div class="col-sm-8" style="margin-top: 2%; padding: 1%" id="formarea">
+   
+    <form onsubmit="return false">
+        <fieldset>
+            <legend style="text-align: center"> Heart Disease Prediction </legend>
+            
+            <div class="form-group row">
+            <label for="inputage" class="col-sm-2 col-form-label">Age</label>
+            <div class="col-sm-10">
+            <input type="number" min="1" class="form-control" id="inputage" placeholder="" required>
+            </div>
+        </div>
+
+        <div class="form-group row">
+          <label for="inputSex" class="col-sm-2 col-form-label">Sex</label>
+            <div class="col-sm-10">
+                <select id="inputSex" class="form-control" required>
+                <option selected>Choose...</option>
+                <option value="1">Male</option>
+                <option value="0">Female</option>
+                </select>
+            </div>  
+        </div>    
+        <div class="form-group row">
+          <label for="inputChestPainType" class="col-sm-2 col-form-label">Chest Pain Type</label>
+            <div class="col-sm-10">
+                <select id="inputChestPainType" class="form-control" required>
+                    <option selected>Choose...</option>
+                    <option value="1">Typical Angina</option>
+                    <option value="2">Atypical Angina</option>
+                    <option value="3">Non-Angina</option>
+                    <option value="4">Asymptomatic</option>
+                </select>
+            </div>
+        </div>
+        <div class="form-group row">
+            <label for="inputRBP" class="col-sm-2 col-form-label">Resting Blood Pressure(in mm Hg)</label>
+            <div class="col-sm-10">
+            <input type="number" min="94" max="200" class="form-control" id="inputRBP" placeholder="" required>
+            </div>
+        </div>        
+        <div class="form-group row">
+            <label for="inputSC" class="col-sm-2 col-form-label">Serum cholesterol(mg/dl)</label>
+            <div class="col-sm-10">
+            <input type="number" class="form-control" id="inputSC" placeholder="" required>
+            </div>
+        </div>
+        <div class="form-group row">
+            <label for="inputFBS" class="col-sm-2 col-form-label">Fasting blood sugar(mg/dl)</label>
+            <div class="col-sm-10">
+            <input type="number" class="form-control" id="inputFBS" placeholder=""required>
+            </div>
+        </div>
+        <div class="form-group row">
+          <label for="inputECG" class="col-sm-2 col-form-label">Resting ECG results</label>
+            <div class="col-sm-10">
+                <select id="inputECG" class="form-control" required>
+                    <option selected>Choose...</option>
+                    <option value="0">Normal</option>
+                    <option value="1">ST-T wave abnormality (T wave inversions and/or ST elevation or depression of > 0.05 mV)</option>
+                    <option value="2">Probable or definite left ventricular hypertrophy by Estes' criteria</option>
+                </select>
+            </div>
+        </div>
+        <div class="form-group row">
+            <label for="inputRate" class="col-sm-2 col-form-label">Maximum heart rate achieved</label>
+            <div class="col-sm-10">
+            <input type="number" class="form-control" id="inputRate" placeholder="" required>
+            </div>
+        </div>
+        <div class="form-group row">
+          <label for="inputAngina" class="col-sm-2 col-form-label">Exercise induced angina</label>
+            <div class="col-sm-10">
+                <select id="inputAngina" class="form-control" required>
+                    <option selected>Choose...</option>
+                    <option value="1">Yes</option>
+                    <option value="0">No</option>
+                </select>
+            </div>
+        </div>
+        <div class="form-group row">
+            <label for="inputST" class="col-sm-2 col-form-label">ST depression induced by exercise relative to rest</label>
+            <div class="col-sm-10">
+            <input type="number" step="0.1" class="form-control" id="inputST" placeholder="" min="0" required>
+            </div>
+        </div>
+        <div class="form-group row">
+          <label for="inputSlope" class="col-sm-2 col-form-label">Slope of the peak exercise ST segment</label>
+            <div class="col-sm-10">
+                <select id="inputSlope" class="form-control" required>
+                    <option selected>Choose...</option>
+                    <option value="1">Upsloping</option>
+                    <option value="2">Flat</option>
+                    <option value="3">Downsloping</option>
+                </select>
+            </div>
+        </div>
+        <div class="form-group row">
+          <label for="inputColor" class="col-sm-2 col-form-label">Number of major vessels (0-3) colored by flourosopy</label>
+            <div class="col-sm-10">
+                <select id="inputColor" class="form-control" required>
+                    <option selected>Choose...</option>
+                    <option value="0">0</option>
+                    <option value="1">1</option>
+                    <option value="2">2</option>
+                    <option value="3">3</option>
+                </select>
+            </div>
+        </div>
+        <div class="form-group row">
+          <label for="inputThallium" class="col-sm-2 col-form-label">Thallium Heart Scan</label>
+            <div class="col-sm-10">
+                <select id="inputThallium" class="form-control" required>
+                    <option selected>Choose...</option>
+                    <option value="3">Normal</option>
+                    <option value="6">Fixed Defect</option>
+                    <option value="7">Reversible Defect</option>
+                </select>
+            </div>
+        </div>    
+      <div class="form-group row">
+        <div class="col-sm-2">
+        </div>
+        <div class="col-sm-10">
+          <button type="submit" class="btn btn-primary" onclick="predict()">Submit</button>
+        </div>
+      </div>
+        
+      <div class="form-group row">
+            <label for="inputPrediction" class="col-sm-2 col-form-label">Percentage of having Heart Disease</label>
+            <div class="col-sm-10">
+                <textarea class="form-control" id="inputprediction" placeholder="" readonly></textarea>
+            </div>
+        </div>    
+        </fieldset>
+        
+        
+    </form>
+     
+  </div>
+
+<div class="col-sm-2">
+    
+</div>
+
+
+<script>
+    function predict(){
+        var age, trestbps, chol, thalach, oldpeak,ca,sex,cp,cp1,cp2,cp3,recg,recg1,recg2,slope,slope1,slope3,thal,thal6,thal7,exang,fbps,p;
+        var agem = 54.521739, trestbpsm = 131.715719, cholm = 246.785953, thalachm = 149.327759, oldpeakm=1.058528, came=0.672241;
+        var aged = 9.030264, trestbpsd = 17.747751, chold = 52.532582, thalachd = 23.121062, oldpeakd = 1.162769, cami=0.000000, camx = 3;
+        
+        age = (document.getElementById("inputage").value - agem) / aged;
+        trestbps = (document.getElementById("inputRBP").value - trestbpsm) / trestbpsd;
+        chol = (document.getElementById("inputSC").value - cholm) / cholm;
+        thalach = (document.getElementById("inputRate").value - thalachm) / thalachd;
+        oldpeak = (document.getElementById("inputST").value - oldpeakm) / oldpeakd;
+        ca = (document.getElementById("inputColor").value - came) / (camx-cami);
+        
+        sex = document.getElementById("inputSex").value;
+        cp = document.getElementById("inputChestPainType").value;
+        
+        if(cp==1){
+            cp1 = 1;
+            cp2 = 0;
+            cp3 = 0;
+        }else if(cp==2){
+            cp1 = 0;
+            cp2 = 1;
+            cp3 = 0;
+        }else if(cp==3){
+            cp1 = 0;
+            cp2 = 0;
+            cp3 = 1;
+        }else{
+            cp1 = 0;
+            cp2 = 0;
+            cp3 = 0;
+        }
+        
+        recg = document.getElementById("inputECG").value;
+        
+        if(recg == 0){
+            recg1 = 0;
+            recg2 = 0;
+        }else if(recg == 1){
+            recg1 = 1;
+            recg2 = 0;
+        }else{
+            recg1 = 0;
+            recg2 = 1;
+        }
+        
+        slope = document.getElementById("inputSlope").value;
+        
+        if(slope ==1){
+            slope1 = 1;
+            slope3 = 0;
+        }else if(slope == 3){
+            slope1 = 0;
+            slope3 = 1;
+        }else{
+            slope1 = 0;
+            slope3 = 0;
+        }
+        
+        thal = document.getElementById("inputThallium").value;
+        
+        if(thal == 6){
+            thal6 = 1;
+            thal7 = 0;
+        }else if(thal == 7){
+            thal6 = 0;
+            thal7 = 1;
+        }else{
+            thal6 = 0;
+            thal7 = 0;
+        }
+        
+        exang = document.getElementById("inputAngina").value;
+        
+        fbps = document.getElementById("inputFBS").value;
+        
+        if(fbps<=120){
+            fbps = 0;
+        }else{
+            fbps = 1;
+        }
+        
+        var agec = -0.12376, sexc = 1.54789, trestbpsc =  0.43321, cholc =  0.22065, fbpsc = -0.59479, thalachc = -0.41716, exangc =  0.71814, oldpeakc = 0.41984, cac =  3.92888, cp_1c = -2.10056, cp_2c = -0.84558, cp_3c = -1.85011, recg_1c =  0.77478, recg_2c =  0.46870, slope_1c = -1.16419, slope_3c = -0.64709, thal_6c = -0.03078, thal_7c =  1.40165, consc = -0.605037;
+        
+        var coeff = age*agec + sex*sexc + trestbps*trestbpsc + chol*cholc + fbps*fbpsc + thalach * thalachc + exang*exangc + oldpeak*oldpeakc + ca*cac + cp_1c*cp1 + cp_2c*cp2 + cp_3c*cp3 + recg1*recg_1c + recg2*recg_2c + slope1*slope_1c + slope3*slope_3c + thal6*thal_6c + thal7*thal_7c + consc;
+        
+        p = Math.pow(Math.E,coeff) / (1.0+Math.pow(Math.E,coeff));
+        
+        document.getElementById("inputprediction").innerHTML = p*100;
+    }
+     
+</script>    
+</body>
+</html>
